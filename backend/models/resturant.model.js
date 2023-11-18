@@ -29,33 +29,43 @@ const resturantSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    likes: {
+    likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
+    dislikes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
+    followers: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    openingTime: {
+        type: String,
+        default: '9:00'
+    },
+    closingTime: {
+        type: String,
+        default: '21:00'
+    },
+    wholeNightShift: {
+        type: Boolean,
+        default: false
+    },
+    foodDelivered: {
         type: Number,
         default: 0
-    },
-    dislikes: {
-        type: Number,
-        default: 0
-    },
-    followers: {
-        type: Number,
-        default: 0
-    },
-    openingTime:{
-        type:String,
-        default:'9:00'
-    },
-    closingTime:{
-        type:String,
-        default:'21:00'
-    },
-    wholeNightShift:{
-        type:Boolean,
-        default:false
-    },
-    foodDelivered:{
-        type:Number,
-        default:0
     }
     ,
     food: [

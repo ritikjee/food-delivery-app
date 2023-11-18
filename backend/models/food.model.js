@@ -47,7 +47,25 @@ const foodSchema = new mongoose.Schema({
     resturant: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Resturant"
-    }
+    },
+    imageUrl: {
+        type: String,
+        required: true,
+    },
+    category: {
+        type: String,
+        required: true
+    },
+    isAvailable: {
+        type: Boolean,
+        default: true
+    },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ],
 
 },
     {
